@@ -18,27 +18,21 @@ public class PhotoSessionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @NotNull
     private String type;
-
     @NotBlank
     private int numberOfPhotos;
-
     @NotNull
     private LocalDate date;
-
     @NotNull
     private LocalTime time;
-
     @NotNull
     private String area;
-
     @NotNull
     private String place;
-    
     private String clientComment;
-
     private boolean dateAvailable;
     private boolean completed;
+    @ManyToOne
+    private ClientEntity client;
 }

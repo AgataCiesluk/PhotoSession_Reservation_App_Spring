@@ -16,12 +16,13 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @NotNull
     @Size(min = 2, max = 30)
     private String login;
-
     @NotNull
     @Size(min = 8, max = 50)
     private String password;
+    @OneToOne
+    @JoinColumn(name = "client_id")
+    private ClientEntity client;
 }
