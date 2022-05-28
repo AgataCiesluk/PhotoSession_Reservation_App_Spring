@@ -21,7 +21,7 @@ public class ClientCreateFormController {
 
     @GetMapping
     public String createClientForm(Model model) {
-        model.addAttribute("client", clientBasicService.createEmptyClientCreateForm());
+        model.addAttribute("client", clientBasicService.createEmptyClient());
         return "/client/formView-newClient";
     }
 
@@ -33,7 +33,6 @@ public class ClientCreateFormController {
         if (result.hasErrors()) {
             return "/client/formView-newClient";
         }
-        client.setUserRole("CLIENT");
         clientBasicService.saveClient(client);
         log.info("Client has been saved with first name: {} and with User login: {} and role: {}.", client.getFirstName(), client.getUserLogin(), client.getUserRole());
         return "/client/temporaryLoginPage";

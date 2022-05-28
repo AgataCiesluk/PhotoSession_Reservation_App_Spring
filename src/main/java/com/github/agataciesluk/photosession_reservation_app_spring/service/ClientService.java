@@ -5,6 +5,6 @@ import com.github.agataciesluk.photosession_reservation_app_spring.controller.Cl
 
 public interface ClientService {
 
-    ClientCreateForm createEmptyClientCreateForm();
+    ClientCreateForm createEmptyClient();
     void saveClient(ClientCreateForm clientCreateForm);
 }

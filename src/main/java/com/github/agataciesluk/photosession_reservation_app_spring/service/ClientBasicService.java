@@ -17,7 +17,7 @@ public class ClientBasicService implements ClientService{
     private final UserRepository userRepository;
 
     @Override
-    public ClientCreateForm createEmptyClientCreateForm() {
+    public ClientCreateForm createEmptyClient() {
         return new ClientCreateForm();
     }
 
