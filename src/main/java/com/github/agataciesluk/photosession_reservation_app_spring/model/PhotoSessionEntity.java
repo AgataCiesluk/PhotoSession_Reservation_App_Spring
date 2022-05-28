@@ -1,7 +1,6 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +11,10 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "photo_sessions")
 public class PhotoSessionEntity {
 

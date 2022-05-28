@@ -1,8 +1,6 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,8 +9,11 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@Table(name = "users")
 public class UserEntity {
 
     @Id
@@ -25,7 +26,6 @@ public class UserEntity {
     @Size(min = 8, max = 50)
     private String password;
     private String role;
-    @OneToOne
-    @JoinColumn(name = "client_id")
+    @OneToOne(mappedBy = "user")
     private ClientEntity client;
 }

@@ -1,7 +1,6 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -13,6 +12,10 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "clients")
 public class ClientEntity {
 
@@ -30,7 +33,8 @@ public class ClientEntity {
     private String email;
     @Size(min = 7, max = 15)
     private int phoneNumber;
-    @OneToOne(mappedBy = "client")
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private UserEntity user;
     @OneToMany(mappedBy = "client")
     private List<PhotoSessionEntity> photoSessions = new ArrayList<>();
