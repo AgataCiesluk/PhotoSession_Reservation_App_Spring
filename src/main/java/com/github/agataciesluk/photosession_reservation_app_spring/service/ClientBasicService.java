@@ -17,7 +17,7 @@ public class ClientBasicService implements ClientService{
     private final UserRepository userRepository;
 
     @Override
-    public ClientCreateForm createEmptyClient() {
+    public ClientCreateForm createEmptyClientToForm() {
         return new ClientCreateForm();
     }
 
@@ -38,6 +38,7 @@ public class ClientBasicService implements ClientService{
                         .build());
     }
 
+    @Override
     public ClientEntity getClientByUserLogin(String userLogin) {
         return clientRepository.customFindByUserLogin(userLogin);
     }

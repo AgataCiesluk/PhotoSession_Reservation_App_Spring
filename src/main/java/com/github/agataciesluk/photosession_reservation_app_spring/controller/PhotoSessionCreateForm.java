@@ -1,8 +1,8 @@
-package com.github.agataciesluk.photosession_reservation_app_spring.model;
+package com.github.agataciesluk.photosession_reservation_app_spring.controller;
 
+import com.github.agataciesluk.photosession_reservation_app_spring.model.ClientEntity;
 import lombok.*;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -10,21 +10,13 @@ import java.time.LocalTime;
 
 @Getter
 @Setter
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-@Table(name = "photo_sessions")
-public class PhotoSessionEntity {
+public class PhotoSessionCreateForm {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     @NotNull
     private String type;
-    @NotBlank
-    private int numberOfPhotos;
     @NotNull
     private LocalDate date;
     @NotNull
@@ -34,7 +26,5 @@ public class PhotoSessionEntity {
     @NotNull
     private String place;
     private String clientComment;
-    private boolean completed;
-    @ManyToOne
     private ClientEntity client;
 }

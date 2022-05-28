@@ -12,6 +12,14 @@
     <title>Client Home Page</title>
 </head>
 <body>
-Witaj ${loggedClient.firstName} ${loggedClient.lastName}!
+<p>Hi ${loggedClient.firstName}!</p>
+
+<a href="http://localhost:8080/client/session-add?userLogin=${loggedClient.user.login}">Reserve Photo Session</a><br>
+Show:
+<ul>
+    <li>Incoming Photo Sessions</li>
+    <li>Completed Photo Sessions</li>
+    <li>All Photo Sessions</li>
+</ul>
 </body>
 </html>

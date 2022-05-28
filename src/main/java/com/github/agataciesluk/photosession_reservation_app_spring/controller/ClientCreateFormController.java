@@ -21,7 +21,7 @@ public class ClientCreateFormController {
 
     @GetMapping
     public String createClientForm(Model model) {
-        model.addAttribute("client", clientBasicService.createEmptyClient());
+        model.addAttribute("client", clientBasicService.createEmptyClientToForm());
         return "/client/formView-newClient";
     }
 

@@ -1,12 +1,10 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.service;
 
-import com.github.agataciesluk.photosession_reservation_app_spring.repository.PhotoSessionRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.github.agataciesluk.photosession_reservation_app_spring.controller.ClientCreateForm;
+import com.github.agataciesluk.photosession_reservation_app_spring.controller.PhotoSessionCreateForm;
 
-@Service
-@RequiredArgsConstructor
-public class PhotoSessionService {
+public interface PhotoSessionService {
 
-    private final PhotoSessionRepository photoSessionRepository;
+    PhotoSessionCreateForm createEmptyPhotoSessionToForm();
+    void savePhotoSession(PhotoSessionCreateForm photoSessionCreateForm);
 }
