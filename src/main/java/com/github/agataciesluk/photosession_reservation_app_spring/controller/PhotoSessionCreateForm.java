@@ -1,6 +1,7 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.controller;
 
 import com.github.agataciesluk.photosession_reservation_app_spring.model.ClientEntity;
+import com.github.agataciesluk.photosession_reservation_app_spring.model.PhotoTypeEntity;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
@@ -16,15 +17,14 @@ import java.time.LocalTime;
 public class PhotoSessionCreateForm {
 
     @NotNull
-    private String type;
+    private String date;
     @NotNull
-    private LocalDate date;
-    @NotNull
-    private LocalTime time;
+    private String time;
     @NotNull
     private String area;
     @NotNull
     private String place;
     private String clientComment;
     private ClientEntity client;
+    private PhotoTypeEntity photoType;
 }

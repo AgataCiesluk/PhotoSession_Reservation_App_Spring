@@ -19,15 +19,16 @@ public class PhotoSessionBasicService implements PhotoSessionService{
 
     @Override
     public void savePhotoSession(PhotoSessionCreateForm photoSessionCreateForm) {
-        int numOfPhotosDependingOnType = 50; //I will have to create a method to get numberOfPhotos based on photoSession type
+
         photoSessionRepository.save(PhotoSessionEntity.builder()
-                        .type(photoSessionCreateForm.getType())
-                        .numberOfPhotos(numOfPhotosDependingOnType)
                         .date(photoSessionCreateForm.getDate())
                         .time(photoSessionCreateForm.getTime())
                         .area(photoSessionCreateForm.getArea())
+                        .place(photoSessionCreateForm.getPlace())
                         .clientComment(photoSessionCreateForm.getClientComment())
                         .completed(false)
+                        .client(photoSessionCreateForm.getClient())
+                        .photoType(photoSessionCreateForm.getPhotoType())
                         .build());
     }
 }

@@ -16,18 +16,9 @@
 ADD NEW PHOTO SESSION FORM:<br>
 
 <form:form action="/client/session-add" method="POST" modelAttribute="photoSession">
-    Type: <form:select path="type">
-    <form:option value="wedding" label="Wedding Reportage"/>
-    <form:option value="occasional" label="Occasional Reportage"/>
-    <form:option value="lifestyle" label="Lifestyle Session"/>
-    <form:option value="outdoor" label="Outdoor session"/>
-    <form:option value="newborn" label="Newborn session"/>
-    <form:option value="pregnancy" label="Pregnancy session"/>
-    <form:option value="business" label="Business session"/>
-    <form:option value="other" label="Other - describe in comment"/>
-    </form:select><br>
-    <form:errors path="type" cssClass="ui-state-error-text"/><br>
-    Date yyyy-MM-dd: <form:input path="date"/><br>
+    Type: <form:select itemValue="id" itemLabel="name" path="photoType.id" items="${types}"/><br>
+    <form:errors path="photoType.id" cssClass="ui-state-error-text"/><br>
+    Date yyyy-MM-dd: <form:input type="date" path="date"/><br>
     <form:errors path="date" cssClass="ui-state-error-text"/><br>
     Time HH:mm: <form:input path="time"/><br>
     <form:errors path="time" cssClass="ui-state-error-text"/><br>
@@ -37,6 +28,7 @@ ADD NEW PHOTO SESSION FORM:<br>
     <form:errors path="place" cssClass="ui-state-error-text"/><br>
     Comment: <form:textarea path="clientComment" rows="5" cols="30"/><br>
     <form:errors path="clientComment" cssClass="ui-state-error-text"/><br>
+    <form:hidden path="client"/>
     <button type="submit">Reserve Session</button>
 </form:form>
 </body>

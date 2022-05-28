@@ -22,13 +22,9 @@ public class PhotoSessionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
-    private String type;
-    @NotBlank
-    private int numberOfPhotos;
+    private String date;
     @NotNull
-    private LocalDate date;
-    @NotNull
-    private LocalTime time;
+    private String time;
     @NotNull
     private String area;
     @NotNull
@@ -37,4 +33,7 @@ public class PhotoSessionEntity {
     private boolean completed;
     @ManyToOne
     private ClientEntity client;
+    @OneToOne
+    @JoinColumn(name = "photoType_id")
+    private PhotoTypeEntity photoType;
 }
