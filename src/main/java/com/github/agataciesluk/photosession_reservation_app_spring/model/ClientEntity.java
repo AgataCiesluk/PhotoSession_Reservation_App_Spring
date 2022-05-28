@@ -32,7 +32,7 @@ public class ClientEntity {
     @Email
     private String email;
     @Size(min = 7, max = 15)
-    private int phoneNumber;
+    private String phoneNumber;
     @OneToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;

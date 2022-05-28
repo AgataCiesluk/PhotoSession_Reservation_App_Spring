@@ -23,7 +23,7 @@ public class ClientCreateForm {
     @Email
     private String email;
     @Size(min = 7, max = 15)
-    private int phoneNumber;
+    private String phoneNumber;
     @NotNull
     @Size(min = 2, max = 30)
     private String userLogin;
