@@ -37,4 +37,8 @@ public class ClientBasicService implements ClientService{
                         .user(newUser)
                         .build());
     }
+
+    public ClientEntity getClientByUserLogin(String userLogin) {
+        return clientRepository.customFindByUserLogin(userLogin);
+    }
 }
