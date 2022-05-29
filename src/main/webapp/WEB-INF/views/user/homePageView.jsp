@@ -12,12 +12,13 @@
     <title>Client Home Page</title>
 </head>
 <body>
-<p>Hi ${loggedClient.firstName}!</p>
+<%--Ponizsze dwie linijki beda tylko dla uzytkownika o roli CLIENT--%>
+<p>Hi ${loggedUser.client.firstName}!</p>
+<a href="http://localhost:8080/client/session-add?userLogin=${loggedUser.login}">Reserve Photo Session</a><br>
 
-<a href="http://localhost:8080/client/session-add?userLogin=${loggedClient.user.login}">Reserve Photo Session</a><br>
 Show:
 <ul>
-    <li>Incoming Photo Sessions</li>
+    <li><a href="http://localhost:8080/photo-sess/future">Future Photo Sessions</a></li>
     <li>Completed Photo Sessions</li>
     <li>All Photo Sessions</li>
 </ul>

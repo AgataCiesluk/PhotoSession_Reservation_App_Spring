@@ -27,16 +27,16 @@ public class PhotoSessionCreateFormController {
         PhotoSessionCreateForm photoSession = photoSessionBasicService.createEmptyPhotoSessionToForm();
         photoSession.setClient(clientBasicService.getClientByUserLogin(userLogin));
         model.addAttribute("photoSession", photoSession);
-        return "/client/formView-newPhotoSession";
+        return "/client/form-newPhotoSession";
     }
 
     @PostMapping
     public String handleNewPhotoSessionForm(@ModelAttribute("photoSession") @Valid PhotoSessionCreateForm photoSession, BindingResult result) {
         if (result.hasErrors()) {
-            return "/client/formView-newPhotoSession";
+            return "/client/form-newPhotoSession";
         }
         photoSessionBasicService.savePhotoSession(photoSession);
-        return "redirect:http://localhost:8080/client/homepage";
+        return "redirect:http://localhost:8080/homepage";
     }
 
     @ModelAttribute("types")

@@ -6,6 +6,8 @@ import com.github.agataciesluk.photosession_reservation_app_spring.repository.Ph
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PhotoSessionBasicService implements PhotoSessionService{
@@ -30,5 +32,15 @@ public class PhotoSessionBasicService implements PhotoSessionService{
                         .client(photoSessionCreateForm.getClient())
                         .photoType(photoSessionCreateForm.getPhotoType())
                         .build());
+    }
+
+    @Override
+    public List<PhotoSessionEntity> getAllPhotoSess() {
+        return photoSessionRepository.findAll();
+    }
+
+    @Override
+    public List<PhotoSessionEntity> getAllFutureSess() {
+        return photoSessionRepository.customFindAllFutureSess();
     }
 }

@@ -22,7 +22,7 @@ public class ClientCreateFormController {
     @GetMapping
     public String createClientForm(Model model) {
         model.addAttribute("client", clientBasicService.createEmptyClientToForm());
-        return "/client/formView-newClient";
+        return "/client/form-newClient";
     }
 
     //Po uzupelnieniu formularza w metodzie POST stworzy sie nowy klient i user jednoczesnie
@@ -31,10 +31,10 @@ public class ClientCreateFormController {
     @PostMapping
     public String handleNewClientForm(@ModelAttribute("client") @Valid ClientCreateForm client, BindingResult result) {
         if (result.hasErrors()) {
-            return "/client/formView-newClient";
+            return "/client/form-newClient";
         }
         clientBasicService.saveClient(client);
         log.info("Client has been saved with first name: {} and with User login: {} and role: {}.", client.getFirstName(), client.getUserLogin(), client.getUserRole());
-        return "/client/temporaryLoginPage";
+        return "/user/temporaryLoginPage";
     }
 }

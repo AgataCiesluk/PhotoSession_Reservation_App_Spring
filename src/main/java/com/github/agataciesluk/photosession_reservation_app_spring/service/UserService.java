@@ -1,12 +1,8 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.service;
 
-import com.github.agataciesluk.photosession_reservation_app_spring.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.github.agataciesluk.photosession_reservation_app_spring.model.UserEntity;
 
-@Service
-@RequiredArgsConstructor
-public class UserService {
+public interface UserService {
 
-    private final UserRepository userRepository;
+    UserEntity findUserByLogin(String login);
 }
