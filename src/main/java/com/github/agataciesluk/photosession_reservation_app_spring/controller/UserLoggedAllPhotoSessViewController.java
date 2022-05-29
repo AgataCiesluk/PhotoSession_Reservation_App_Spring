@@ -14,15 +14,15 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/photo-sess/future")
-public class UserLoggedFuturePhotoSessViewController {
+@RequestMapping("/photo-sess/all")
+public class UserLoggedAllPhotoSessViewController {
 
     private final UserBasicService userBasicService;
     private static final String USER_LOGIN = "agataKlient";
     private final PhotoSessionBasicService photoSessionBasicService;
 
     @GetMapping
-    public String showFuturePhotoSess(Model model) {
+    public String showAllPhotoSess(Model model) {
         //Jak bedzie juz podpiety Spring Security to tutaj bedzie trzeba sprawdzic
         //czy zalogowany uzytkownik ma role ADMIN czy CLIENT i w zaleznosci od roli taki
         //model przekazac do widoku a w widoku juz zarzadzic w zaleznosci od roli uzytkownika
@@ -32,14 +32,14 @@ public class UserLoggedFuturePhotoSessViewController {
 //            model.addAttribute("loggedUser", userBasicService.findUserByLogin("admin") );
 //        }
         model.addAttribute("loggedUser", userBasicService.findUserByLogin(USER_LOGIN));
-        return "/user/futurePhotoSessView";
+        return "/user/allPhotoSessView";
     }
 
-    @ModelAttribute("futureSessions")
-    public List<PhotoSessionEntity> futureSessions() {
+    @ModelAttribute("allSessions")
+    public List<PhotoSessionEntity> allSessions() {
         //tu przy uzyciu spring security odczytac role User'a i w zaleznosci od roli pobrac wszystkie przyszle sesje
         //ponizej kod dla danego zalogowanego uzytkownika
-//        return photoSessionBasicService.getAllFutureSessSorted(); --> metoda jesli uzytkownik ma role ADMIN
-        return photoSessionBasicService.getFutureSessByUserLoginSorted(USER_LOGIN); //--> metoda dla uztkownika innego niz ADMIN (klient) o znanym przez spring security loginie
+//        return photoSessionBasicService.getAllPhotoSessSorted();// --> metoda jesli uzytkownik ma role ADMIN
+        return photoSessionBasicService.getAllSessByUserLoginSorted(USER_LOGIN); //--> metoda dla uztkownika innego niz ADMIN (klient) o znanym przez spring security loginie
     }
 }

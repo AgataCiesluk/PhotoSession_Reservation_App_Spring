@@ -22,6 +22,6 @@ public class PhotoTypeEntity {
     private String name;
     @NotBlank
     private int numberOfPhotos;
-    @OneToOne(mappedBy = "photoType")
+    @OneToOne(mappedBy = "photoType") //-->zmienic na @OneToMany
     private PhotoSessionEntity photoSession;
 }

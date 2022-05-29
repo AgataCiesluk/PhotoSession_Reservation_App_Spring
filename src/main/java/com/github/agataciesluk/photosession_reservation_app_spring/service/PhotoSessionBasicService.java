@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -35,12 +36,22 @@ public class PhotoSessionBasicService implements PhotoSessionService{
     }
 
     @Override
-    public List<PhotoSessionEntity> getAllPhotoSess() {
+    public List<PhotoSessionEntity> getAllPhotoSessSorted() {
         return photoSessionRepository.findAll();
     }
 
     @Override
-    public List<PhotoSessionEntity> getAllFutureSess() {
-        return photoSessionRepository.customFindAllFutureSess();
+    public List<PhotoSessionEntity> getAllFutureSessSorted() {
+        return photoSessionRepository.customFindAllFutureSessSorted();
+    }
+
+    @Override
+    public List<PhotoSessionEntity> getFutureSessByUserLoginSorted(String userLogin) {
+        return photoSessionRepository.customFindFutureSessByUserLoginSorted(userLogin);
+    }
+
+    @Override
+    public List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin) {
+        return photoSessionRepository.customFindAllSessByUserLoginSorted(userLogin);
     }
 }

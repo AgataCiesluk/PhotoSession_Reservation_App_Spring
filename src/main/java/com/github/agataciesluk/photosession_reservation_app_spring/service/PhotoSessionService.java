@@ -9,6 +9,8 @@ public interface PhotoSessionService {
 
     PhotoSessionCreateForm createEmptyPhotoSessionToForm();
     void savePhotoSession(PhotoSessionCreateForm photoSessionCreateForm);
-    List<PhotoSessionEntity> getAllPhotoSess();
-    List<PhotoSessionEntity> getAllFutureSess();
+    List<PhotoSessionEntity> getAllPhotoSessSorted();
+    List<PhotoSessionEntity> getAllFutureSessSorted();
+    List<PhotoSessionEntity> getFutureSessByUserLoginSorted(String userLogin);
+    List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin);
 }

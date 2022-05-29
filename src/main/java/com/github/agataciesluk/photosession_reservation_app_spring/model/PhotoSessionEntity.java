@@ -33,7 +33,7 @@ public class PhotoSessionEntity {
     private boolean completed;
     @ManyToOne
     private ClientEntity client;
-    @OneToOne
+    @OneToOne//-->zmienic na @ManyToOne
     @JoinColumn(name = "photoType_id")
     private PhotoTypeEntity photoType;
 }
