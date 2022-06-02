@@ -13,6 +13,10 @@
     <title>Completed Photo Sessions</title>
 </head>
 <body>
+<c:if test="${empty completedSessions}">
+    There is no completed photo sessions to show.
+</c:if>
+<c:if test="${not empty completedSessions}">
 <table>
     <thead>
     <tr>
@@ -33,5 +37,6 @@
     </c:forEach>
     </tbody>
 </table>
+</c:if>
 </body>
 </html>
