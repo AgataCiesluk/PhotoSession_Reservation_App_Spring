@@ -19,7 +19,7 @@
 Show:
 <ul>
     <li><a href="http://localhost:8080/photo-sess/future">Future Photo Sessions</a></li>
-    <li>Completed Photo Sessions</li>
+    <li><a href="http://localhost:8080/photo-sess/completed">Completed Photo Sessions</a></li>
     <li><a href="http://localhost:8080/photo-sess/all">All Photo Sessions</a></li>
 </ul>
 </body>

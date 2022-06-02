@@ -13,4 +13,6 @@ public interface PhotoSessionService {
     List<PhotoSessionEntity> getAllFutureSessSorted();
     List<PhotoSessionEntity> getFutureSessByUserLoginSorted(String userLogin);
     List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin);
+    List<PhotoSessionEntity> getAllCompletedSessByUserLoginSorted(String userLogin);
+    List<PhotoSessionEntity> getAllCompletedSess();
 }

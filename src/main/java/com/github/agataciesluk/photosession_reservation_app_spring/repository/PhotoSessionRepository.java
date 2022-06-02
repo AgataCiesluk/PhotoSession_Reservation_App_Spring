@@ -14,8 +14,14 @@ public interface PhotoSessionRepository extends JpaRepository<PhotoSessionEntity
     List<PhotoSessionEntity> customFindAllFutureSessSorted();
 
     @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.client.user.login = :userLogin AND pse.date >= CURRENT_DATE ORDER BY pse.date")
-    List<PhotoSessionEntity> customFindFutureSessByUserLoginSorted(String userLogin);
+    List<PhotoSessionEntity> customFindFutureSessByUserLoginSorted(@Param("userLogin") String userLogin);
 
     @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.client.user.login = :userLogin ORDER BY pse.date")
-    List<PhotoSessionEntity> customFindAllSessByUserLoginSorted(String userLogin);
+    List<PhotoSessionEntity> customFindAllSessByUserLoginSorted(@Param("userLogin")String userLogin);
+
+    @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.client.user.login = :userLogin AND pse.completed = true ORDER BY pse.date")
+    List<PhotoSessionEntity> customFindAllCompletedSessByUserLoginSorted(@Param("userLogin")String userLogin);
+
+    @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.completed = true ORDER BY pse.date")
+    List<PhotoSessionEntity> customFindAllCompletedSess();
 }

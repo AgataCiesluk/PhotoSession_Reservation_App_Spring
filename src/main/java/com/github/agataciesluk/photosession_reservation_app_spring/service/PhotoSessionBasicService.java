@@ -54,4 +54,14 @@ public class PhotoSessionBasicService implements PhotoSessionService{
     public List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin) {
         return photoSessionRepository.customFindAllSessByUserLoginSorted(userLogin);
     }
+
+    @Override
+    public List<PhotoSessionEntity> getAllCompletedSessByUserLoginSorted(String userLogin) {
+        return photoSessionRepository.customFindAllCompletedSessByUserLoginSorted(userLogin);
+    }
+
+    @Override
+    public List<PhotoSessionEntity> getAllCompletedSess() {
+        return photoSessionRepository.customFindAllCompletedSess();
+    }
 }
