@@ -20,11 +20,26 @@ ADD NEW PHOTO SESSION FORM:<br>
     <form:errors path="photoType.id" cssClass="ui-state-error-text"/><br>
     Date yyyy-MM-dd: <form:input type="date" path="date"/><br>
     <form:errors path="date" cssClass="ui-state-error-text"/><br>
-    Time HH:mm: <form:input path="time"/><br>
+    Time HH:mm: <form:input type="time" path="time"/><br>
     <form:errors path="time" cssClass="ui-state-error-text"/><br>
-    Area: <form:input path="area"/><br>
+    Area: <form:select path="area">
+        <form:option value="-" label="--Please Select--"/>
+        <form:option value="kashubia" label="Kashubia"/>
+        <form:option value="tricity" label="Tricity"/>
+        <form:option value="masuria" label="Masuria"/>
+        <form:option value="other" label="Other-add as a comment"/>
+    </form:select><br>
     <form:errors path="area" cssClass="ui-state-error-text"/><br>
-    Place: <form:input path="place"/><br>
+    Place: <form:select path="place">
+    <form:option value="-" label="--Please Select--"/>
+    <form:option value="forest" label="Forest"/>
+    <form:option value="meadow" label="Meadow"/>
+    <form:option value="lake" label="Lake"/>
+    <form:option value="beach" label="Beach"/>
+    <form:option value="city" label="City"/>
+    <form:option value="indoor" label="Indoor"/>
+    <form:option value="other" label="Other-add as a comment"/>
+    </form:select><br>
     <form:errors path="place" cssClass="ui-state-error-text"/><br>
     Comment: <form:textarea path="clientComment" rows="5" cols="30"/><br>
     <form:errors path="clientComment" cssClass="ui-state-error-text"/><br>
