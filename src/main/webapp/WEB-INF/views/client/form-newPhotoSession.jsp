@@ -45,6 +45,7 @@ ADD NEW PHOTO SESSION FORM:<br>
     <form:errors path="clientComment" cssClass="ui-state-error-text"/><br>
     <form:hidden path="client"/>
     <button type="submit">Reserve Session</button>
-</form:form>
+</form:form><br>
+<a href="http://localhost:8080/homepage">Back to Home Page</a>
 </body>
 </html>

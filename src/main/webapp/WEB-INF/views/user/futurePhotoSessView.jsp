@@ -37,6 +37,7 @@
     </c:forEach>
     </tbody>
 </table>
-</c:if>
+</c:if><br>
+<a href="http://localhost:8080/homepage">Back to Home Page</a>
 </body>
 </html>
