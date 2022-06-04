@@ -1,13 +1,12 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.controller;
 
+import com.github.agataciesluk.photosession_reservation_app_spring.annotation.AttributeToCheck;
+import com.github.agataciesluk.photosession_reservation_app_spring.annotation.CheckUnique;
 import com.github.agataciesluk.photosession_reservation_app_spring.model.ClientEntity;
 import com.github.agataciesluk.photosession_reservation_app_spring.model.PhotoTypeEntity;
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -17,6 +16,7 @@ import java.time.LocalTime;
 public class PhotoSessionCreateForm {
 
     @NotNull
+    @CheckUnique(value = AttributeToCheck.DATE)
     private String date;
     @NotNull
     private String time;

@@ -1,6 +1,7 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.annotation;
 
 import com.github.agataciesluk.photosession_reservation_app_spring.service.ClientBasicService;
+import com.github.agataciesluk.photosession_reservation_app_spring.service.PhotoSessionBasicService;
 import com.github.agataciesluk.photosession_reservation_app_spring.service.UserBasicService;
 
 import javax.validation.ConstraintValidator;
@@ -11,10 +12,12 @@ public class CheckUniqueValidator implements ConstraintValidator<CheckUnique, St
     private AttributeToCheck attributeToCheck;
     private UserBasicService userBasicService;
     private ClientBasicService clientBasicService;
+    private PhotoSessionBasicService photoSessionBasicService;
 
-    public CheckUniqueValidator(UserBasicService userBasicService, ClientBasicService clientBasicService) {
+    public CheckUniqueValidator(UserBasicService userBasicService, ClientBasicService clientBasicService, PhotoSessionBasicService photoSessionBasicService) {
         this.userBasicService = userBasicService;
         this.clientBasicService = clientBasicService;
+        this.photoSessionBasicService = photoSessionBasicService;
     }
 
     @Override
@@ -32,6 +35,9 @@ public class CheckUniqueValidator implements ConstraintValidator<CheckUnique, St
         }
         if (attributeToCheck == AttributeToCheck.PHONE_NUMBER) {
             return clientBasicService.getClientByPhoneNumber(attribute) == null;
+        }
+        if (attributeToCheck == AttributeToCheck.DATE) {
+            return photoSessionBasicService.getPhotoSessByDate(attribute) == null;
         }
         return false;
     }

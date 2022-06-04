@@ -22,7 +22,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Repeatable(CheckUnique.List.class)
 public @interface CheckUnique {
 
-    String message() default "Already exists. Please provide a unique value";
+    String message() default "Already taken. Please provide a unique value";
 
     Class<?>[] groups() default { };
 

@@ -24,4 +24,6 @@ public interface PhotoSessionRepository extends JpaRepository<PhotoSessionEntity
 
     @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.completed = true ORDER BY pse.date")
     List<PhotoSessionEntity> customFindAllCompletedSess();
+
+    PhotoSessionEntity findByDate(String date);
 }

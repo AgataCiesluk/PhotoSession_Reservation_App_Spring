@@ -15,4 +15,5 @@ public interface PhotoSessionService {
     List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin);
     List<PhotoSessionEntity> getAllCompletedSessByUserLoginSorted(String userLogin);
     List<PhotoSessionEntity> getAllCompletedSess();
+    PhotoSessionEntity getPhotoSessByDate(String date);
 }
