@@ -6,8 +6,9 @@ import com.github.agataciesluk.photosession_reservation_app_spring.model.UserEnt
 import com.github.agataciesluk.photosession_reservation_app_spring.repository.ClientRepository;
 import com.github.agataciesluk.photosession_reservation_app_spring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ClientBasicService implements ClientService{
@@ -40,6 +41,22 @@ public class ClientBasicService implements ClientService{
 
     @Override
     public ClientEntity getClientByUserLogin(String userLogin) {
-        return clientRepository.customFindByUserLogin(userLogin);
+        ClientEntity client = clientRepository.customFindByUserLogin(userLogin);
+        log.info("Found client with login = {}: {}", userLogin, client);
+        return client;
+    }
+
+    @Override
+    public ClientEntity getClientByEmail(String email) {
+        ClientEntity client = clientRepository.findByEmail(email);
+        log.info("Found client with email = {}: {}", email, client);
+        return client;
+    }
+
+    @Override
+    public ClientEntity getClientByPhoneNumber(String phoneNumber) {
+        ClientEntity client = clientRepository.findByPhoneNumber(phoneNumber);
+        log.info("Found client with phone number = {}: {}", phoneNumber, client);
+        return client;
     }
 }

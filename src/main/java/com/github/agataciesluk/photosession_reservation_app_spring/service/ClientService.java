@@ -9,4 +9,6 @@ public interface ClientService {
     ClientCreateForm createEmptyClientToForm();
     void saveClient(ClientCreateForm clientCreateForm);
     ClientEntity getClientByUserLogin(String userLogin);
+    ClientEntity getClientByEmail(String email);
+    ClientEntity getClientByPhoneNumber(String phoneNumber);
 }
