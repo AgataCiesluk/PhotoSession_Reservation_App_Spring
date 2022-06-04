@@ -7,6 +7,7 @@ import com.github.agataciesluk.photosession_reservation_app_spring.repository.Cl
 import com.github.agataciesluk.photosession_reservation_app_spring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 @Slf4j
 @Service
@@ -16,6 +17,7 @@ public class ClientBasicService implements ClientService{
     private static final String ROLE = "CLIENT";
     private final ClientRepository clientRepository;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public ClientCreateForm createEmptyClientToForm() {
@@ -26,7 +28,7 @@ public class ClientBasicService implements ClientService{
     public void saveClient(ClientCreateForm clientCreateForm) {
         UserEntity newUser = userRepository.save(UserEntity.builder()
                         .login(clientCreateForm.getUserLogin())
-                        .password(clientCreateForm.getUserPassword())
+                        .password(passwordEncoder.encode(clientCreateForm.getUserPassword()))
                         .role(ROLE)
                         .build());
 

@@ -4,19 +4,21 @@ import com.github.agataciesluk.photosession_reservation_app_spring.model.UserEnt
 import com.github.agataciesluk.photosession_reservation_app_spring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Slf4j
 @Service
-@RequiredArgsConstructor
 public class UserBasicService implements UserService{
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserEntity findUserByLogin(String login) {
-        UserEntity user = userRepository.findByLogin(login);
-        log.info("Found user: {}", user);
-        return user;
+        return userRepository.findByLogin(login).get();
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

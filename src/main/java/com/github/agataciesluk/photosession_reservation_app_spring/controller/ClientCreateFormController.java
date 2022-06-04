@@ -1,6 +1,5 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.controller;
 
-import com.github.agataciesluk.photosession_reservation_app_spring.model.ClientEntity;
 import com.github.agataciesluk.photosession_reservation_app_spring.service.ClientBasicService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +34,6 @@ public class ClientCreateFormController {
         }
         clientBasicService.saveClient(client);
         log.info("Client has been saved with first name: {} and with User login: {} and role: {}.", client.getFirstName(), client.getUserLogin(), client.getUserRole());
-        return "/user/temporaryLoginPage";
+        return "redirect:http://localhost:8080/login";
     }
 }

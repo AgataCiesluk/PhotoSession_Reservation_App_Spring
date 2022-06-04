@@ -1,13 +1,19 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.controller;
 
+import com.github.agataciesluk.photosession_reservation_app_spring.model.UserEntity;
+import com.github.agataciesluk.photosession_reservation_app_spring.service.AuthService;
 import com.github.agataciesluk.photosession_reservation_app_spring.service.ClientBasicService;
 import com.github.agataciesluk.photosession_reservation_app_spring.service.UserBasicService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.security.Principal;
 
 @Slf4j
 @Controller
@@ -15,22 +21,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/homepage")
 public class UserLoggedHomePageViewController {
 
-    private static final String USER_LOGIN = "agataKlient";
+//    private static final String USER_LOGIN = "agataKlient";
     private final UserBasicService userBasicService;
+    private final Authentication authentication;
+    private final AuthService authService;
 
     @GetMapping
     public String homePageView(Model model) {
-        //Jak bedzie juz podpiety Spring Security to tutaj bedzie trzeba sprawdzic
-        //czy zalogowany uzytkownik ma role ADMIN czy CLIENT i w zaleznosci od roli taki
-        //model przekazac do widoku a w widoku juz zarzadzic w zaleznosci od roli uzytkownika
-        //jaki widok na homepage bedzie mial ADMIN a jaki CLIENT.
-        //Link jak to zrobic uzywajac spring security jest na Slacku w projekt-koncowy.
-//        if ("ADMIN".equals(userBasicService.findUserByLogin("admin").getRole())) {
-//            model.addAttribute("loggedUser", userBasicService.findUserByLogin("admin") );
-//        }
-        model.addAttribute("loggedUser", userBasicService.findUserByLogin(USER_LOGIN));
+        UserDetails loggedUserDetails = authService.loadUserByUsername(authentication.getName());
+        UserEntity logged
+        model.addAttribute("loggedUser", loggedUser);
         return "/user/homePageView";
     }
-
-
 }

@@ -7,12 +7,16 @@
 --%>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Client Home Page</title>
 </head>
 <body>
 <%--Ponizsze dwie linijki beda tylko dla uzytkownika o roli CLIENT--%>
+<sec:authorize access="hasRole('CLIENT')">
+    MAM ROLE CLIENT
+</sec:authorize>
 <p>Hi ${loggedUser.client.firstName}!</p>
 <a href="http://localhost:8080/client/session-add?userLogin=${loggedUser.login}">Reserve Photo Session</a><br>
 
