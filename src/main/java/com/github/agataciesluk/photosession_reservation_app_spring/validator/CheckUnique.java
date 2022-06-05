@@ -1,4 +1,4 @@
-package com.github.agataciesluk.photosession_reservation_app_spring.annotation;
+package com.github.agataciesluk.photosession_reservation_app_spring.validator;
 
 
 import javax.validation.Constraint;

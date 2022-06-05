@@ -8,6 +8,7 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Future Photo Sessions</title>
@@ -23,7 +24,9 @@
         <th>ID</th>
         <th>Date</th>
         <th>Area</th>
+        <sec:authorize access="hasAuthority('ADMIN')">
         <th>Client First Name</th>
+        </sec:authorize>
     </tr>
     </thead>
     <tbody>
@@ -32,7 +35,9 @@
             <td>${futureSess.id}</td>
             <td>${futureSess.date}</td>
             <td>${futureSess.area}</td>
+            <sec:authorize access="hasAuthority('ADMIN')">
             <td>${futureSess.client.firstName}</td>
+            </sec:authorize>
         </tr>
     </c:forEach>
     </tbody>

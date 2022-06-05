@@ -33,7 +33,7 @@ public class ClientCreateFormController {
             return "/client/form-newClient";
         }
         clientBasicService.saveClient(client);
-        log.info("Client has been saved with first name: {} and with User login: {} and role: {}.", client.getFirstName(), client.getUserLogin(), client.getUserRole());
+        log.info("Client has been saved with first name: {} and with User username: {} and role: {}.", client.getFirstName(), client.getUsername(), client.getUserRole());
         return "redirect:http://localhost:8080/login";
     }
 }

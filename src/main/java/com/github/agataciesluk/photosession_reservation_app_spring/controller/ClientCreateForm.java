@@ -1,10 +1,9 @@
 package com.github.agataciesluk.photosession_reservation_app_spring.controller;
 
-import com.github.agataciesluk.photosession_reservation_app_spring.annotation.AttributeToCheck;
-import com.github.agataciesluk.photosession_reservation_app_spring.annotation.CheckUnique;
+import com.github.agataciesluk.photosession_reservation_app_spring.validator.AttributeToCheck;
+import com.github.agataciesluk.photosession_reservation_app_spring.validator.CheckUnique;
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -31,10 +30,10 @@ public class ClientCreateForm {
     private String phoneNumber;
     @NotNull
     @Size(min = 2, max = 30)
-    @CheckUnique(value = AttributeToCheck.USER_LOGIN)
-    private String userLogin;
+    @CheckUnique(value = AttributeToCheck.USERNAME)
+    private String username;
     @NotNull
-    @Size(min = 8, max = 50)
+    @Size(min = 8)
     private String userPassword;
     private String userRole;
 }

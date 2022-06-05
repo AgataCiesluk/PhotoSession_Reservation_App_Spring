@@ -45,18 +45,18 @@ public class PhotoSessionBasicService implements PhotoSessionService{
     }
 
     @Override
-    public List<PhotoSessionEntity> getFutureSessByUserLoginSorted(String userLogin) {
-        return photoSessionRepository.customFindFutureSessByUserLoginSorted(userLogin);
+    public List<PhotoSessionEntity> getFutureSessByUsernameSorted(String username) {
+        return photoSessionRepository.customFindFutureSessByUsernameSorted(username);
     }
 
     @Override
-    public List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin) {
-        return photoSessionRepository.customFindAllSessByUserLoginSorted(userLogin);
+    public List<PhotoSessionEntity> getAllSessByUsernameSorted(String username) {
+        return photoSessionRepository.customFindAllSessByUsernameSorted(username);
     }
 
     @Override
-    public List<PhotoSessionEntity> getAllCompletedSessByUserLoginSorted(String userLogin) {
-        return photoSessionRepository.customFindAllCompletedSessByUserLoginSorted(userLogin);
+    public List<PhotoSessionEntity> getAllCompletedSessByUsernameSorted(String username) {
+        return photoSessionRepository.customFindAllCompletedSessByUsernameSorted(username);
     }
 
     @Override

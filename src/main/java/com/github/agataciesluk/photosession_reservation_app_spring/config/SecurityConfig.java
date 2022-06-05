@@ -25,7 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(authService()).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(authService())
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -42,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .formLogin()
                 .loginPage("/login") // domyślny, adres pod którym będzie dostęny formularz logowania, robimy do tego kontroler, który wystawia stornę z formularzem ALE TYLKO NA @GetMapping, nie robimy @PostMapping w ogóle. Formularz ma odesłać żądanie POST na "/login"
-                .usernameParameter("login") // domyślny, nazwa pola w formularzu logowania dla nazwy użytkownika
+                .usernameParameter("username") // domyślny, nazwa pola w formularzu logowania dla nazwy użytkownika
                 .passwordParameter("password") // domyślny, nazwa pola w formularzu logowania dla hasła
                 .defaultSuccessUrl("/homepage", true) // strona, na którą trafi użytkownik, jeżeli wszedł bezpośrednio na ścieżkę /login, aby się zalogować
 //                .defaultSuccessUrl("/homepage", true) // wymusza, że po zalogowaniu ZAWSZE trafia się na wskazaną stronę.

@@ -7,8 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
 
-    @Query("SELECT c FROM ClientEntity c JOIN c.user u WHERE u.login = :userLogin")
-    ClientEntity customFindByUserLogin(@Param("userLogin") String userLogin);
+    @Query("SELECT c FROM ClientEntity c JOIN c.user u WHERE u.username = :username")
+    ClientEntity customFindByUsername(@Param("username") String username);
     ClientEntity findByEmail(String email);
     ClientEntity findByPhoneNumber(String phoneNumber);
 }

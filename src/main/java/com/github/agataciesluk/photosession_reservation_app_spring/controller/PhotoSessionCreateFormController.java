@@ -23,9 +23,9 @@ public class PhotoSessionCreateFormController {
     private final PhotoTypeBasicService photoTypeBasicService;
 
     @GetMapping
-    public String createPhotoSessionForm(@RequestParam String userLogin, Model model) {
+    public String createPhotoSessionForm(@RequestParam String username, Model model) {
         PhotoSessionCreateForm photoSession = photoSessionBasicService.createEmptyPhotoSessionToForm();
-        photoSession.setClient(clientBasicService.getClientByUserLogin(userLogin));
+        photoSession.setClient(clientBasicService.getClientByUsername(username));
         model.addAttribute("photoSession", photoSession);
         return "/client/form-newPhotoSession";
     }

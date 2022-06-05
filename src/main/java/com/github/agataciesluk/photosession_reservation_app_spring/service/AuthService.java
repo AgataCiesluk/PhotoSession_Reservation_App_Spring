@@ -12,20 +12,21 @@ import java.util.List;
 
 public class AuthService implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private UserBasicService userBasicService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByLogin(username)
-                .map(userEntity -> new User(
-                        userEntity.getLogin(),
+        return userBasicService.findUserByUsername(username)
+                .map(userEntity -> new CurrentUser(
+                        userEntity.getUsername(),
                         userEntity.getPassword(),
-                        List.of(new SimpleGrantedAuthority(userEntity.getRole()))))
+                        List.of(new SimpleGrantedAuthority(userEntity.getRole())),
+                        userEntity))
                 .orElseThrow(() -> new UsernameNotFoundException("No user with login " + username));
     }
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public void setUserBasicService(UserBasicService userBasicService) {
+        this.userBasicService = userBasicService;
     }
 }

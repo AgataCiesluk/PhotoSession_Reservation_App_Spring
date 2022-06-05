@@ -27,7 +27,7 @@ public class ClientBasicService implements ClientService{
     @Override
     public void saveClient(ClientCreateForm clientCreateForm) {
         UserEntity newUser = userRepository.save(UserEntity.builder()
-                        .login(clientCreateForm.getUserLogin())
+                        .username(clientCreateForm.getUsername())
                         .password(passwordEncoder.encode(clientCreateForm.getUserPassword()))
                         .role(ROLE)
                         .build());
@@ -42,9 +42,9 @@ public class ClientBasicService implements ClientService{
     }
 
     @Override
-    public ClientEntity getClientByUserLogin(String userLogin) {
-        ClientEntity client = clientRepository.customFindByUserLogin(userLogin);
-        log.info("Found client with login = {}: {}", userLogin, client);
+    public ClientEntity getClientByUsername(String username) {
+        ClientEntity client = clientRepository.customFindByUsername(username);
+        log.info("Found client with username = {}: {}", username, client);
         return client;
     }
 

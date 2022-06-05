@@ -11,9 +11,9 @@ public interface PhotoSessionService {
     void savePhotoSession(PhotoSessionCreateForm photoSessionCreateForm);
     List<PhotoSessionEntity> getAllPhotoSessSorted();
     List<PhotoSessionEntity> getAllFutureSessSorted();
-    List<PhotoSessionEntity> getFutureSessByUserLoginSorted(String userLogin);
-    List<PhotoSessionEntity> getAllSessByUserLoginSorted(String userLogin);
-    List<PhotoSessionEntity> getAllCompletedSessByUserLoginSorted(String userLogin);
+    List<PhotoSessionEntity> getFutureSessByUsernameSorted(String username);
+    List<PhotoSessionEntity> getAllSessByUsernameSorted(String username);
+    List<PhotoSessionEntity> getAllCompletedSessByUsernameSorted(String username);
     List<PhotoSessionEntity> getAllCompletedSess();
     PhotoSessionEntity getPhotoSessByDate(String date);
 }

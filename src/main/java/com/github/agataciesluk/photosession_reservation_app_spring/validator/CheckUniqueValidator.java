@@ -1,4 +1,4 @@
-package com.github.agataciesluk.photosession_reservation_app_spring.annotation;
+package com.github.agataciesluk.photosession_reservation_app_spring.validator;
 
 import com.github.agataciesluk.photosession_reservation_app_spring.service.ClientBasicService;
 import com.github.agataciesluk.photosession_reservation_app_spring.service.PhotoSessionBasicService;
@@ -27,8 +27,11 @@ public class CheckUniqueValidator implements ConstraintValidator<CheckUnique, St
 
     @Override
     public boolean isValid(String attribute, ConstraintValidatorContext context) {
-        if (attributeToCheck == AttributeToCheck.USER_LOGIN) {
-            return userBasicService.findUserByLogin(attribute) == null;
+        if (attribute == null) {
+            return true;
+        }
+        if (attributeToCheck == AttributeToCheck.USERNAME) {
+            return !userBasicService.findUserByUsername(attribute).isPresent();
         }
         if (attributeToCheck == AttributeToCheck.EMAIL) {
             return clientBasicService.getClientByEmail(attribute) == null;

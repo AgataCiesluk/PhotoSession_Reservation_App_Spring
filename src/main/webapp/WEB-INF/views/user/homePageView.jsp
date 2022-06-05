@@ -10,21 +10,22 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
-    <title>Client Home Page</title>
+    <title>Home Page</title>
 </head>
 <body>
-<%--Ponizsze dwie linijki beda tylko dla uzytkownika o roli CLIENT--%>
-<sec:authorize access="hasRole('CLIENT')">
-    MAM ROLE CLIENT
-</sec:authorize>
+<sec:authorize access="hasAuthority('CLIENT')">
 <p>Hi ${loggedUser.client.firstName}!</p>
-<a href="http://localhost:8080/client/session-add?userLogin=${loggedUser.login}">Reserve Photo Session</a><br>
-
+<a href="http://localhost:8080/client/session-add?username=${loggedUser.username}">Reserve Photo Session</a><br>
+</sec:authorize>
+<sec:authorize access="hasAuthority('ADMIN')">
+<p>Hi ${loggedUser.username}!</p>
+</sec:authorize>
 Show:
 <ul>
     <li><a href="http://localhost:8080/photo-sess/future">Future Photo Sessions</a></li>
     <li><a href="http://localhost:8080/photo-sess/completed">Completed Photo Sessions</a></li>
     <li><a href="http://localhost:8080/photo-sess/all">All Photo Sessions</a></li>
-</ul>
+</ul><br>
+<a href="http://localhost:8080/logout">Logout</a>
 </body>
 </html>

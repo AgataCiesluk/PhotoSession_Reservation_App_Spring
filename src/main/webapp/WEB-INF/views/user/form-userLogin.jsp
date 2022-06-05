@@ -16,8 +16,8 @@
 <form action="/login" method='POST'>
     <table>
         <tr>
-            <td>Login:</td>
-            <td><input type='text' name='login' value=''></td>
+            <td>Username:</td>
+            <td><input type='text' name='username' value=''></td>
         </tr>
         <tr>
             <td>Password:</td>

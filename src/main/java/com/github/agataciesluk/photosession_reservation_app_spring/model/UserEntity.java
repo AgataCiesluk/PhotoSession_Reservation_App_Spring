@@ -21,9 +21,9 @@ public class UserEntity {
     private long id;
     @NotNull
     @Size(min = 2, max = 30)
-    private String login;
+    private String username;
     @NotNull
-    @Size(min = 8, max = 50)
+    @Size(min = 8)
     private String password;
     private String role;
     @OneToOne(mappedBy = "user")

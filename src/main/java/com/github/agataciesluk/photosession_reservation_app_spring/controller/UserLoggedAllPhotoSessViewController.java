@@ -18,7 +18,7 @@ import java.util.List;
 public class UserLoggedAllPhotoSessViewController {
 
     private final UserBasicService userBasicService;
-    private static final String USER_LOGIN = "agataKlient";
+    private static final String USERNAME = "agataKlient";
     private final PhotoSessionBasicService photoSessionBasicService;
 
     @GetMapping
@@ -31,7 +31,7 @@ public class UserLoggedAllPhotoSessViewController {
 //        if ("ADMIN".equals(userBasicService.findUserByLogin("admin").getRole())) {
 //            model.addAttribute("loggedUser", userBasicService.findUserByLogin("admin") );
 //        }
-        model.addAttribute("loggedUser", userBasicService.findUserByLogin(USER_LOGIN));
+        model.addAttribute("loggedUser", userBasicService.findUserByUsername(USERNAME));
         return "/user/allPhotoSessView";
     }
 
@@ -40,6 +40,6 @@ public class UserLoggedAllPhotoSessViewController {
         //tu przy uzyciu spring security odczytac role User'a i w zaleznosci od roli pobrac wszystkie przyszle sesje
         //ponizej kod dla danego zalogowanego uzytkownika
 //        return photoSessionBasicService.getAllPhotoSessSorted();// --> metoda jesli uzytkownik ma role ADMIN
-        return photoSessionBasicService.getAllSessByUserLoginSorted(USER_LOGIN); //--> metoda dla uztkownika innego niz ADMIN (klient) o znanym przez spring security loginie
+        return photoSessionBasicService.getAllSessByUsernameSorted(USERNAME); //--> metoda dla uztkownika innego niz ADMIN (klient) o znanym przez spring security loginie
     }
 }
