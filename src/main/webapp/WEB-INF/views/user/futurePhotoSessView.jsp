@@ -18,30 +18,44 @@
     There is no future photo sessions to show.
 </c:if>
 <c:if test="${not empty futureSessions}">
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Date</th>
-        <th>Area</th>
-        <sec:authorize access="hasAuthority('ADMIN')">
-        <th>Client First Name</th>
-        </sec:authorize>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="futureSess" items="${futureSessions}">
+    <table>
+        <thead>
         <tr>
-            <td>${futureSess.id}</td>
-            <td>${futureSess.date}</td>
-            <td>${futureSess.area}</td>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Area</th>
+            <th>Place</th>
+            <th>Photo Session type</th>
+            <th>Number of photos</th>
             <sec:authorize access="hasAuthority('ADMIN')">
-            <td>${futureSess.client.firstName}</td>
+                <th>Client First Name</th>
+                <th>Client Last Name</th>
+                <th>Client Comment</th>
+                <th>Completed</th>
             </sec:authorize>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach var="futureSess" items="${futureSessions}">
+            <tr>
+                <td>${futureSess.id}</td>
+                <td>${futureSess.date}</td>
+                <td>${futureSess.time}</td>
+                <td>${futureSess.area}</td>
+                <td>${futureSess.place}</td>
+                <td>${futureSess.photoType.name}</td>
+                <td>${futureSess.photoType.numberOfPhotos}</td>
+                <sec:authorize access="hasAuthority('ADMIN')">
+                    <td>${futureSess.client.firstName}</td>
+                    <td>${futureSess.client.lastName}</td>
+                    <td>${futureSess.clientComment}</td>
+                    <td>${futureSess.completed}</td>
+                </sec:authorize>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </c:if><br>
 <a href="http://localhost:8080/homepage">Back to Home Page</a>
 </body>

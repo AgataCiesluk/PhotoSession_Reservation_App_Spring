@@ -22,7 +22,7 @@ REGISTRATION FORM:<br>
     <form:errors path="lastName" cssClass="ui-state-error-text"/><br>
     Email: <form:input path="email"/><br>
     <form:errors path="email" cssClass="ui-state-error-text"/><br>
-    Phone number: <form:input path="phoneNumber"/><br>
+    Phone number: <form:input type="number" path="phoneNumber"/><br>
     <form:errors path="phoneNumber" cssClass="ui-state-error-text"/><br>
     Username: <form:input path="username"/><br>
     <form:errors path="username" cssClass="ui-state-error-text"/><br>

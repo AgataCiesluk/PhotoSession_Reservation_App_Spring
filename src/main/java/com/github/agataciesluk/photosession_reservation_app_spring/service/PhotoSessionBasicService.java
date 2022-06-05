@@ -35,6 +35,12 @@ public class PhotoSessionBasicService implements PhotoSessionService{
     }
 
     @Override
+    public void savePhotoSessionCompleted(PhotoSessionEntity photoSession) {
+        photoSession.setCompleted(true);
+        photoSessionRepository.save(photoSession);
+    }
+
+    @Override
     public List<PhotoSessionEntity> getAllPhotoSessSorted() {
         return photoSessionRepository.findAll();
     }
@@ -60,12 +66,17 @@ public class PhotoSessionBasicService implements PhotoSessionService{
     }
 
     @Override
-    public List<PhotoSessionEntity> getAllCompletedSess() {
-        return photoSessionRepository.customFindAllCompletedSess();
+    public List<PhotoSessionEntity> getAllCompletedSessSorted() {
+        return photoSessionRepository.customFindAllCompletedSessSorted();
     }
 
     @Override
     public PhotoSessionEntity getPhotoSessByDate(String date) {
         return photoSessionRepository.findByDate(date);
+    }
+
+    @Override
+    public PhotoSessionEntity getPhotoSessById(long id) {
+        return photoSessionRepository.getById(id);
     }
 }

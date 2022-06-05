@@ -5,8 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -24,7 +22,4 @@ public class PhotoTypeEntity {
     private String name;
     @NotBlank
     private int numberOfPhotos;
-//    @OneToMany
-//    @JoinColumn(name = "photo_session_id")
-//    private List<PhotoSessionEntity> photoSessions = new ArrayList<>();
 }
