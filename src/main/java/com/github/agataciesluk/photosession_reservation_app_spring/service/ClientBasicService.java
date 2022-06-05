@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -60,5 +63,10 @@ public class ClientBasicService implements ClientService{
         ClientEntity client = clientRepository.findByPhoneNumber(phoneNumber);
         log.info("Found client with phone number = {}: {}", phoneNumber, client);
         return client;
+    }
+
+    @Override
+    public List<ClientEntity> getAllClients() {
+        return clientRepository.findAll();
     }
 }

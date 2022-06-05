@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/login").permitAll()
                 .antMatchers("/client/create").permitAll()
                 .antMatchers("/client/session-add").hasAuthority("CLIENT")
-                .antMatchers("/admin/sess-complete").hasAuthority("ADMIN")
+                .antMatchers("/admin/sess-complete", "/admin/all-clients").hasAuthority("ADMIN")
                 .antMatchers("/photo-sess/**").authenticated()
                 .antMatchers("/homepage").authenticated()
                 .and()

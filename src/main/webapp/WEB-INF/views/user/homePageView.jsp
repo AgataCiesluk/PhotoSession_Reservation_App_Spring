@@ -25,6 +25,9 @@ Show:
     <li><a href="http://localhost:8080/photo-sess/future">Future Photo Sessions</a></li>
     <li><a href="http://localhost:8080/photo-sess/completed">Completed Photo Sessions</a></li>
     <li><a href="http://localhost:8080/photo-sess/all">All Photo Sessions</a></li>
+    <sec:authorize access="hasAuthority('ADMIN')">
+        <li><a href="http://localhost:8080/admin/all-clients">All Clients</a></li>
+    </sec:authorize>
 </ul><br>
 <a href="http://localhost:8080/logout">Logout</a>
 </body>
