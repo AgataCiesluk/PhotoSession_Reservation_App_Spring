@@ -10,9 +10,9 @@ import javax.validation.ConstraintValidatorContext;
 public class CheckUniqueValidator implements ConstraintValidator<CheckUnique, String> {
 
     private AttributeToCheck attributeToCheck;
-    private UserBasicService userBasicService;
-    private ClientBasicService clientBasicService;
-    private PhotoSessionBasicService photoSessionBasicService;
+    private final UserBasicService userBasicService;
+    private final ClientBasicService clientBasicService;
+    private final PhotoSessionBasicService photoSessionBasicService;
 
     public CheckUniqueValidator(UserBasicService userBasicService, ClientBasicService clientBasicService, PhotoSessionBasicService photoSessionBasicService) {
         this.userBasicService = userBasicService;

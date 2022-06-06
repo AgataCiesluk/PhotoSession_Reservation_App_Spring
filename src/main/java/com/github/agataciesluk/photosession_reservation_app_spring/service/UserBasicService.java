@@ -31,6 +31,15 @@ public class UserBasicService implements UserService{
                         .build());
     }
 
+    @Override
+    public void createDefaultAdmin() {
+        UserEntity admin = new UserEntity();
+        admin.setUsername("admin");
+        admin.setRole("ADMIN");
+        admin.setPassword("admin1234");
+        saveUser(admin);
+    }
+
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;

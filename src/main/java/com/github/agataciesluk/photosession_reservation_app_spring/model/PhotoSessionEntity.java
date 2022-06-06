@@ -3,10 +3,7 @@ package com.github.agataciesluk.photosession_reservation_app_spring.model;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
@@ -21,13 +18,13 @@ public class PhotoSessionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotNull
+    @NotEmpty
     private String date;
-    @NotNull
+    @NotEmpty
     private String time;
-    @NotNull
+    @NotEmpty
     private String area;
-    @NotNull
+    @NotEmpty
     private String place;
     private String clientComment;
     private boolean completed;

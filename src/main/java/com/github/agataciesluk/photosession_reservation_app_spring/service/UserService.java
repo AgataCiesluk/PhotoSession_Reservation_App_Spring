@@ -8,4 +8,5 @@ public interface UserService {
 
     Optional<UserEntity> findUserByUsername(String username);
     void saveUser(UserEntity user);
+    void createDefaultAdmin();
 }

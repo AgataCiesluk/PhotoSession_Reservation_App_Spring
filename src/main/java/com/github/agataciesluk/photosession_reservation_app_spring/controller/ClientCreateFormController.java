@@ -24,9 +24,6 @@ public class ClientCreateFormController {
         return "/client/form-newClient";
     }
 
-    //Po uzupelnieniu formularza w metodzie POST stworzy sie nowy klient i user jednoczesnie
-    //A nowy uzytkownik/klient zostanie odeslany do strony logowania dzieki czemu uzyskam
-    //informacje jaki User (o jakiej roli i loginie) jest zalogowany (info o loginie potrzebne do Spring Security)
     @PostMapping
     public String handleNewClientForm(@ModelAttribute("client") @Valid ClientCreateForm client, BindingResult result) {
         if (result.hasErrors()) {
