@@ -4,6 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -19,9 +23,10 @@ public class PhotoSessionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotEmpty
+    @Size(max = 10)
     private String date;
-    @NotEmpty
-    private String time;
+    @NotNull
+    private LocalTime time;
     @NotEmpty
     private String area;
     @NotEmpty

@@ -7,6 +7,9 @@ import com.github.agataciesluk.photosession_reservation_app_spring.validator.Che
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -16,10 +19,11 @@ import javax.validation.constraints.NotEmpty;
 public class PhotoSessionCreateForm {
 
     @NotEmpty
+    @Size(max = 10)
     @CheckUnique(value = AttributeToCheck.DATE)
     private String date;
-    @NotEmpty
-    private String time;
+    @NotNull
+    private LocalTime time;
     @NotEmpty
     private String area;
     @NotEmpty
