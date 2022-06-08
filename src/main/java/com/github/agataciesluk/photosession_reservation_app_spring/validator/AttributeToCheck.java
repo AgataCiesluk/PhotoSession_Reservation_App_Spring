@@ -4,5 +4,5 @@ public enum AttributeToCheck {
     PHONE_NUMBER,
     EMAIL,
     USERNAME,
-    DATE;
+    DATE
 }

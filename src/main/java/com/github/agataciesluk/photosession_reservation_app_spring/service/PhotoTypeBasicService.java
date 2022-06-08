@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class PhotoTypeBasicService implements PhotoTypeService{
+public class PhotoTypeBasicService implements PhotoTypeService {
 
     private final PhotoTypeRepository photoTypeRepository;
 

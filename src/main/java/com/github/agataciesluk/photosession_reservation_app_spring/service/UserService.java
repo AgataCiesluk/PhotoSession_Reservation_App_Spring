@@ -7,6 +7,10 @@ import java.util.Optional;
 public interface UserService {
 
     Optional<UserEntity> findUserByUsername(String username);
+
+    UserEntity findUserByRole(String role);
+
     void saveUser(UserEntity user);
+
     void createDefaultAdmin();
 }

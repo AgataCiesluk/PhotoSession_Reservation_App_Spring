@@ -16,10 +16,10 @@ public interface PhotoSessionRepository extends JpaRepository<PhotoSessionEntity
     List<PhotoSessionEntity> customFindFutureSessByUsernameSorted(@Param("username") String username);
 
     @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.client.user.username = :username ORDER BY pse.date")
-    List<PhotoSessionEntity> customFindAllSessByUsernameSorted(@Param("username")String username);
+    List<PhotoSessionEntity> customFindAllSessByUsernameSorted(@Param("username") String username);
 
     @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.client.user.username = :username AND pse.completed = true ORDER BY pse.date")
-    List<PhotoSessionEntity> customFindAllCompletedSessByUsernameSorted(@Param("username")String username);
+    List<PhotoSessionEntity> customFindAllCompletedSessByUsernameSorted(@Param("username") String username);
 
     @Query("SELECT pse FROM PhotoSessionEntity pse WHERE pse.completed = true ORDER BY pse.date")
     List<PhotoSessionEntity> customFindAllCompletedSessSorted();

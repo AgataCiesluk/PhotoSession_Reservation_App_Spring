@@ -31,7 +31,7 @@ public class CheckUniqueValidator implements ConstraintValidator<CheckUnique, St
             return true;
         }
         if (attributeToCheck == AttributeToCheck.USERNAME) {
-            return !userBasicService.findUserByUsername(attribute).isPresent();
+            return userBasicService.findUserByUsername(attribute).isEmpty();
         }
         if (attributeToCheck == AttributeToCheck.EMAIL) {
             return clientBasicService.getClientByEmail(attribute) == null;

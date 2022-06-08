@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserBasicService implements UserService{
+public class UserBasicService implements UserService {
 
     private UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -23,21 +23,26 @@ public class UserBasicService implements UserService{
         return userRepository.findByUsername(username);
     }
 
+    @Override
+    public UserEntity findUserByRole(String role) {
+        return userRepository.findByRole(role);
+    }
+
     public void saveUser(UserEntity user) {
         userRepository.save(UserEntity.builder()
-                        .password(passwordEncoder.encode(user.getPassword()))
-                        .role(user.getRole())
-                        .username(user.getUsername())
-                        .build());
+                .password(passwordEncoder.encode(user.getPassword()))
+                .role(user.getRole())
+                .username(user.getUsername())
+                .build());
     }
 
     @Override
     public void createDefaultAdmin() {
-        UserEntity admin = new UserEntity();
-        admin.setUsername("admin");
-        admin.setRole("ADMIN");
-        admin.setPassword("admin1234");
-        saveUser(admin);
+        saveUser(UserEntity.builder()
+                .username("admin")
+                .role("ADMIN")
+                .password("admin1234")
+                .build());
     }
 
     @Autowired

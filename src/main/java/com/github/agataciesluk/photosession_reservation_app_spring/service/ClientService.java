@@ -9,9 +9,14 @@ import java.util.List;
 public interface ClientService {
 
     ClientCreateForm createEmptyClientToForm();
+
     void saveClient(ClientCreateForm clientCreateForm);
+
     ClientEntity getClientByUsername(String username);
+
     ClientEntity getClientByEmail(String email);
+
     ClientEntity getClientByPhoneNumber(String phoneNumber);
+
     List<ClientEntity> getAllClients();
 }

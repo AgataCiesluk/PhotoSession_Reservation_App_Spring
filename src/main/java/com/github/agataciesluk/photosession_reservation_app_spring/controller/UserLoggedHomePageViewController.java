@@ -17,6 +17,7 @@ public class UserLoggedHomePageViewController {
 
     @GetMapping
     public String homePageView(Model model, @AuthenticationPrincipal CurrentUser currentUser) {
+        log.info("User successfully logged.");
         model.addAttribute("loggedUser", currentUser.getUserEntity());
         return "/user/homePageView";
     }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class PhotoSessionBasicService implements PhotoSessionService{
+public class PhotoSessionBasicService implements PhotoSessionService {
 
     private final PhotoSessionRepository photoSessionRepository;
 
@@ -23,15 +23,15 @@ public class PhotoSessionBasicService implements PhotoSessionService{
     public void savePhotoSession(PhotoSessionCreateForm photoSessionCreateForm) {
 
         photoSessionRepository.save(PhotoSessionEntity.builder()
-                        .date(photoSessionCreateForm.getDate())
-                        .time(photoSessionCreateForm.getTime())
-                        .area(photoSessionCreateForm.getArea())
-                        .place(photoSessionCreateForm.getPlace())
-                        .clientComment(photoSessionCreateForm.getClientComment())
-                        .completed(false)
-                        .client(photoSessionCreateForm.getClient())
-                        .photoType(photoSessionCreateForm.getPhotoType())
-                        .build());
+                .date(photoSessionCreateForm.getDate())
+                .time(photoSessionCreateForm.getTime())
+                .area(photoSessionCreateForm.getArea())
+                .place(photoSessionCreateForm.getPlace())
+                .clientComment(photoSessionCreateForm.getClientComment())
+                .completed(false)
+                .client(photoSessionCreateForm.getClient())
+                .photoType(photoSessionCreateForm.getPhotoType())
+                .build());
     }
 
     @Override
