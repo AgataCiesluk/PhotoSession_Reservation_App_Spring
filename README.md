@@ -70,6 +70,8 @@ The endpoint that I recommend to start with is ```http://localhost:8080/login```
 |GET	          |```http://localhost:8080/photo-sess/completed```|List of completed, sorted photo sessions will be created based on database and depending on logged user (different for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessions) and showed as a table in jsp view ```/user/completedPhotoSessView```|
 |GET	          |```http://localhost:8080/photo-sess/future```|List of future, sorted photo sessions will be created based on database and depending on logged user (different for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessions) and showed as a table in jsp view ```/user/futurePhotoSessView```|
 
+## Testing
+Due to lack of time, project contains only 3 Spring Boot unit tests for client: service, controller and repository. In the future, if time allows, there can be much more.
 
 ## Scopes that can be developed in the future
 - Pricing can be added depending on photo session types,
