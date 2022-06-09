@@ -61,5 +61,12 @@ The endpoint that I recommend to start with is ```http://localhost:8080/login```
 |POST	          |```http://localhost:8080/logout```	     |Method created and used automatically by Spring Security - user logout process|
 |GET	          |```http://localhost:8080/admin/all-clients```	     |List of all clients (users with role "CLIENT) will be created based on database and showed as a table in jsp view ```/admin/allClientsView```|
 |GET	          |```http://localhost:8080/admin/sess-complete?id={requestParam}```|(Avbl for user with role "ADMIN") Particular photo session with id={requestParam} will be marked as completed=true in database and then user will be redirected to ```http://localhost:8080/photo-sess/all```|
+|GET	          |```http://localhost:8080/client/create```|Redirect to jsp view ```/client/form-newClient``` with form to register a new user/client|
+|POST	          |```http://localhost:8080/client/create```|New client/user will be added to the database. Redirect to login page to authenticate a new user/client.|
+|GET	          |```http://localhost:8080/client/session-add```	     |Redirect to jsp view ```/client/form-newPhotoSession``` with form to reserve a photo session|
+|POST	          |```http://localhost:8080/client/session-add```	     |New photo session will be added to the database for particular (logged) client. Redirect to ```http://localhost:8080/homepage```|
+|GET	          |```http://localhost:8080/photo-sess/all```|List of all photo sessions will be created based on database and depending on logged user (diffrent for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessiosn) and showed as a table in jsp view ```/user/allPhotoSessView```|
+
+
 
 
