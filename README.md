@@ -59,13 +59,24 @@ The endpoint that I recommend to start with is ```http://localhost:8080/login```
 |POST	          |```http://localhost:8080/login```	     |Method created and used automatically by Spring Security - user authentication|
 |GET	          |```http://localhost:8080/logout```	     |Redirect to jsp view with form to logout with use of Spring Security|
 |POST	          |```http://localhost:8080/logout```	     |Method created and used automatically by Spring Security - user logout process|
+|GET	          |```http://localhost:8080/homepage```	     |Redirect to jsp file with homepage view. Depending on logged user role the content will be slightly different|
 |GET	          |```http://localhost:8080/admin/all-clients```	     |List of all clients (users with role "CLIENT) will be created based on database and showed as a table in jsp view ```/admin/allClientsView```|
 |GET	          |```http://localhost:8080/admin/sess-complete?id={requestParam}```|(Avbl for user with role "ADMIN") Particular photo session with id={requestParam} will be marked as completed=true in database and then user will be redirected to ```http://localhost:8080/photo-sess/all```|
 |GET	          |```http://localhost:8080/client/create```|Redirect to jsp view ```/client/form-newClient``` with form to register a new user/client|
 |POST	          |```http://localhost:8080/client/create```|New client/user will be added to the database. Redirect to login page to authenticate a new user/client.|
 |GET	          |```http://localhost:8080/client/session-add```	     |Redirect to jsp view ```/client/form-newPhotoSession``` with form to reserve a photo session|
 |POST	          |```http://localhost:8080/client/session-add```	     |New photo session will be added to the database for particular (logged) client. Redirect to ```http://localhost:8080/homepage```|
-|GET	          |```http://localhost:8080/photo-sess/all```|List of all photo sessions will be created based on database and depending on logged user (diffrent for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessiosn) and showed as a table in jsp view ```/user/allPhotoSessView```|
+|GET	          |```http://localhost:8080/photo-sess/all```|List of all, sorted photo sessions will be created based on database and depending on logged user (different for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessions) and showed as a table in jsp view ```/user/allPhotoSessView```|
+|GET	          |```http://localhost:8080/photo-sess/completed```|List of completed, sorted photo sessions will be created based on database and depending on logged user (different for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessions) and showed as a table in jsp view ```/user/completedPhotoSessView```|
+|GET	          |```http://localhost:8080/photo-sess/future```|List of future, sorted photo sessions will be created based on database and depending on logged user (different for user with role "ADMIN" and different for user with role "CLIENT" - client will see only his/her photo sessions) and showed as a table in jsp view ```/user/futurePhotoSessView```|
+
+
+## Scopes that can be developed in the future
+- Pricing can be added depending on photo session types,
+- Creation of receipt,
+- Payments method can be added (as additional database table),
+- Photo session types can be manage by admin/photographer,
+- Links to finished photo sessions with photos available for client after every completed photo session.
 
 
 
